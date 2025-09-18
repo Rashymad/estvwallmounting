@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Your TV Mounting Service - ES TV Wallmounting</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Book your professional TV mounting service online. Choose your service, select your preferred time, and schedule your appointment with ES TV Wallmounting." />
+<link rel="icon" href="../public/fondo-transparente-(1).png" type="image/png">
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ftvmountp6058back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+</head>
+<body class="bg-background">
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-surface shadow-subtle">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <a href="/home/homepage.html">
+                        <img
+                  src="../public/fondo-transparente-(1).png"
+                  alt="TV Wall Mounting - Eickermanns Services LLC"
+                  style="height: 100px; width: auto;"
+                  data-cms-key="logo"
+                  onerror="console.error('Failed to load logo:', this.src);"
+                />
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/home/homepage.html" class="navbar-link">Home</a>
+                    <a href="/service/services_pricing.html" class="navbar-link">Services</a>
+                    <a href="/bookappointment/online_booking_system.html" class="navbar-link font-semibold hidden">Book Now</a>
+                    <a href="/review/customer_testimonials_portfolio.html" class="navbar-link">Reviews</a>
+                    <a href="/contact/contact_service_areas.html" class="navbar-link">Contact</a>
+                </div>
+
+                <!-- Phone Number & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+1-786-771-4728" class="hidden sm:flex items-center space-x-2 navbar-phone">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <span data-cms-key="phone">+1-786-771-4728</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-border-light">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="/home/homepage.html" class="navbar-link">Home</a>
+                    <a href="/service/services_pricing.html" class="navbar-link">Services & Pricing</a>
+                    <a href="/bookappointment/online_booking_system.html" class="navbar-link font-semibold hidden">Book Appointment</a>
+                    <a href="/review/customer_testimonials_portfolio.html" class="navbar-link">Reviews & Portfolio</a>
+                    <a href="/contact/contact_service_areas.html" class="navbar-link">Contact & Areas</a>
+                    <a href="tel:+1-786-771-4728" class="navbar-phone flex items-center space-x-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <span data-cms-key="phone">+1-786-771-4728</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Booking Progress Header -->
+    <div class="sticky top-16 z-40 bg-red-600 border-b border-red-200">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <h1 class="text-lg font-heading font-semibold navbar-brand">Book Your Service</h1>
+                    <div class="hidden sm:flex items-center space-x-2 text-sm text-red-600">
+                        <span id="current-step-text">Step 1 of 4</span>
+                        <span>•</span>
+                        <span id="step-description">Select Services</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-32 bg-red-200 rounded-full h-2">
+                      <div 
+                        id="progress-bar" 
+                        class="h-2 rounded-full transition-all duration-300" 
+                        style="width: 25%; background-color: #FF0000;">
+                      </div>
+                    </div>
+                    <span id="progress-percentage" class="text-sm font-semibold navbar-brand">25%</span>
+                  </div>
+                  
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Booking Container -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Step 1: Service Selection -->
+            <div id="step-1" class="booking-step" data-cms-key="step1">
+                <div class="text-center mb-8">
+                    <h2 data-cms-key="step1_title" class="text-3xl font-heading font-bold text-black mb-4">Choose Your Services</h2>
+                    <p data-cms-key="step1_subtitle" class="text-lg text-text-secondary">Select the TV mounting services you need. You can choose multiple services.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <!-- Wall Mounting Service -->
+                    <div class="service-card card cursor-pointer border-2 border-transparent hover:border-red-300 transition-all duration-300" data-cms-key="booking_services-0" data-service="wall-mount" data-price="149" data-duration="2">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 navbar-brand" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5l-1 2v1h8v-1l-1-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 12H3V5h18v10z"/>
+                                </svg>
+                            </div>
+                            <h3 data-cms-key="booking_services-0-title" class="text-xl font-heading font-semibold text-black mb-2">Wall Mounting</h3>
+                            <p data-cms-key="booking_services-0-description" class="text-text-secondary mb-4">Professional wall mounting with cable management</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span data-cms-key="booking_services-0-price" class="text-2xl font-bold navbar-brand">$149</span>
+                                <span data-cms-key="booking_services-0-duration" class="text-sm text-text-secondary">~2 hours</span>
+                            </div>
+                            <div class="flex items-center justify-center space-x-3">
+                                <button class="quantity-btn minus bg-secondary-200 text-secondary-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-secondary-300 transition-colors" disabled>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                                    </svg>
+                                </button>
+                                <span class="quantity-display font-semibold text-lg w-8 text-center">0</span>
+                                <button style="background-color: red;" class="quantity-btn plus bg-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ceiling Mounting Service -->
+                    <div class="service-card card cursor-pointer border-2 border-transparent hover:border-red-300 transition-all duration-300" data-cms-key="booking_services-1" data-service="ceiling-mount" data-price="199" data-duration="3">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 accent" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <h3 data-cms-key="booking_services-1-title" class="text-xl font-heading font-semibold text-black mb-2">Ceiling Mounting</h3>
+                            <p data-cms-key="booking_services-1-description" class="text-text-secondary mb-4">Specialized ceiling installation for optimal viewing</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span data-cms-key="booking_services-1-price" class="text-2xl font-bold navbar-brand">$199</span>
+                                <span data-cms-key="booking_services-1-duration" class="text-sm text-text-secondary">~3 hours</span>
+                            </div>
+                            <div class="flex items-center justify-center space-x-3">
+                                <button class="quantity-btn minus bg-secondary-200 text-secondary-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-secondary-300 transition-colors" disabled>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                                    </svg>
+                                </button>
+                                <span class="quantity-display font-semibold text-lg w-8 text-center">0</span>
+                                <button style="background-color: red;" class="quantity-btn plus bg-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Complete Setup Service -->
+                    <div class="service-card card cursor-pointer border-2 border-transparent hover:border-red-300 transition-all duration-300" data-cms-key="booking_services-2" data-service="complete-setup" data-price="249" data-duration="4">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 success" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 data-cms-key="booking_services-2-title" class="text-xl font-heading font-semibold text-black mb-2">Complete Setup</h3>
+                            <p data-cms-key="booking_services-2-description" class="text-text-secondary mb-4">Full entertainment system configuration</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span data-cms-key="booking_services-2-price" class="text-2xl font-bold navbar-brand">$249</span>
+                                <span data-cms-key="booking_services-2-duration" class="text-sm text-text-secondary">~4 hours</span>
+                            </div>
+                            <div class="flex items-center justify-center space-x-3">
+                                <button class="quantity-btn minus bg-secondary-200 text-secondary-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-secondary-300 transition-colors" disabled>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                                    </svg>
+                                </button>
+                                <span class="quantity-display font-semibold text-lg w-8 text-center">0</span>
+                                <button style="background-color: red;"  class="quantity-btn plus bg-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="bg-secondary-50 rounded-lg p-6 mb-8">
+                    <h3 style="color: black;" class="text-lg font-heading font-semibold text-black mb-4">Order Summary</h3>
+                    <div id="selected-services" class="space-y-2 mb-4">
+                        <p class="text-text-secondary">No services selected</p>
+                    </div>
+                    <div class="border-t border-secondary-200 pt-4">
+                        <div class="flex justify-between items-center">
+                            <span style="color: black;" class="text-lg font-semibold text-black">Total:</span>
+                            <span id="total-price" class="text-2xl font-bold navbar-brand">$0</span>
+                        </div>
+                        <p class="text-sm text-text-secondary mt-1">Estimated duration: <span id="total-duration">0 hours</span></p>
+                    </div>
+                </div>
+
+                <div class="flex justify-end">
+                    <button id="step-1-next" class="btn-primary  disabled:cursor-not-allowed" disabled>
+                        Continue to Date & Time
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Date & Time Selection -->
+            <div id="step-2" class="booking-step hidden">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-heading font-bold navbar-brand mb-4">Select Date & Time</h2>
+                    <p class="text-lg text-text-secondary">Choose your preferred appointment date and time slot.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Calendar -->
+                    <div class="card">
+                        <h3 class="text-xl font-heading font-semibold navbar-brand mb-4">Available Dates</h3>
+                        <div id="calendar-widget" class="calendar-container">
+                            <!-- Calendar will be generated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Time Slots -->
+                    <div class="card">
+                        <h3 class="text-xl font-heading font-semibold navbar-brand mb-4">Available Time Slots</h3>
+                        <div id="time-slots" class="space-y-3">
+                            <p class="text-text-secondary">Please select a date first</p>
+                        </div>
+                        
+                        <!-- Service Type Toggle -->
+                        <div class="mt-6 p-4 bg-accent-50 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="text-sm font-semibold navbar-brand">Emergency Service</label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="emergency-service" class="sr-only peer" />
+                                    <div class="w-11 h-6 bg-secondary-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
+                                </label>
+                            </div>
+                            <p class="text-xs text-text-secondary">Emergency service available with 50% surcharge for same-day appointments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between mt-8">
+                    <button id="step-2-back" class="btn-secondary">
+                        Back to Services
+                    </button>
+                    <button id="step-2-next" class="btn-primary disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        Continue to Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Customer Information -->
+            <div id="step-3" class="booking-step hidden">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-heading font-bold contact-info mb-4">Your Information</h2>
+                    <p class="text-lg text-text-secondary">Please provide your contact and service location details.</p>
+                </div>
+
+                <form id="customer-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Personal Information -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-heading font-semibold contact-info ">Contact Information</h3>
+                            
+                            <div>
+                                <label for="first-name" class="block text-sm font-semibold contact-info mb-2">First Name *</label>
+                                <input type="text" id="first-name" name="firstName" class="input-field" required />
+                            </div>
+                            
+                            <div>
+                                <label for="last-name" class="block text-sm font-semibold contact-info mb-2">Last Name *</label>
+                                <input type="text" id="last-name" name="lastName" class="input-field" required />
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-semibold contact-info mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" class="input-field" required />
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-sm font-semibold contact-info mb-2">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" class="input-field" placeholder="(555) 123-4567" required />
+                            </div>
+                        </div>
+
+                        <!-- Service Address -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-heading font-semibold contact-info">Service Address</h3>
+                            
+                            <div>
+                                <label for="address" class="block text-sm font-semibold contact-info mb-2">Street Address *</label>
+                                <input type="text" id="address" name="address" class="input-field" required />
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="city" class="block text-sm font-semibold contact-info mb-2">City *</label>
+                                    <input type="text" id="city" name="city" class="input-field" required />
+                                </div>
+                                <div>
+                                    <label for="zip" class="block text-sm font-semibold contact-info mb-2">ZIP Code *</label>
+                                    <input type="text" id="zip" name="zip" class="input-field" required />
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="special-instructions" class="block text-sm font-semibold contact-info mb-2">Special Instructions</label>
+                                <textarea id="special-instructions" name="specialInstructions" rows="3" class="input-field" placeholder="Any special access instructions, parking details, or specific requirements..."></textarea>
+                            </div>
+
+                            <!-- Service Area Verification -->
+                            <div id="service-area-check" class="p-4 bg-success-50 border border-success-200 rounded-lg hidden">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="w-5 h-5 success" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                    </svg>
+                                    <span class="text-sm font-semibold text-success-600">Service area confirmed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="flex justify-between mt-8">
+                    <button id="step-3-back" class="btn-secondary">
+                        Back to Date & Time
+                    </button>
+                    <button id="step-3-next" class="btn-primary disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        Review Booking
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 4: Booking Summary & Confirmation -->
+            <div id="step-4" class="booking-step hidden">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-heading font-bold contact-info mb-4">Confirm Your Booking</h2>
+                    <p class="text-lg text-text-secondary">Please review your booking details and confirm your appointment.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Booking Summary -->
+                    <div class="space-y-6">
+                        <div class="card">
+                            <h3 class="text-lg font-heading font-semibold contact-info mb-4">Service Details</h3>
+                            <div id="booking-summary-services" class="space-y-3">
+                                <!-- Services will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="text-lg font-heading font-semibold contact-info mb-4">Appointment Details</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Date:</span>
+                                    <span id="summary-date" class="font-semibold contact-info">-</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Time:</span>
+                                    <span id="summary-time" class="font-semibold contact-info">-</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Duration:</span>
+                                    <span id="summary-duration" class="font-semibold contact-info">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="text-lg font-heading font-semibold contact-info mb-4">Customer Information</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Name:</span>
+                                    <span id="summary-name" class="font-semibold contact-info">-</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Email:</span>
+                                    <span id="summary-email" class="font-semibold contact-info">-</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Phone:</span>
+                                    <span id="summary-phone" class="font-semibold contact-info">-</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Address:</span>
+                                    <span id="summary-address" class="font-semibold contact-info">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment & Confirmation -->
+                    <div class="space-y-6">
+                        <div class="card">
+                            <h3 class="text-lg font-heading font-semibold contact-info mb-4">Pricing Breakdown</h3>
+                            <div id="pricing-breakdown" class="space-y-3">
+                                <!-- Pricing will be populated by JavaScript -->
+                            </div>
+                            <div class="border-t border-secondary-200 pt-4 mt-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg font-semibold contact-info">Total Amount:</span>
+                                    <span id="final-total" class="text-2xl font-bold contact-info">$0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="text-lg font-heading font-semibold contact-info mb-4">Payment & Terms</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="p-4 bg-red-50 rounded-lg">
+                                    <div class="flex items-center space-x-2 mb-2">
+                                        <svg class="w-5 h-5 red" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/>
+                                        </svg>
+                                        <span class="font-semibold contact-info">Secure Payment</span>
+                                    </div>
+                                    <p class="text-sm text-red-700">A 25% deposit is required to confirm your booking. The remaining balance will be collected upon service completion.</p>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <label class="flex items-start space-x-3 cursor-pointer">
+                                        <input type="checkbox" id="terms-agreement" class="mt-1 w-4 h-4 text-red border-border rounded focus:ring-red-500" />
+                                        <span class="text-sm text-text-secondary">
+                                            I agree to the <a href="#" class="navbar-brand hover:text-red-700 underline">Terms of Service</a> and <a href="#" class="navbar-brand hover:text-red-700 underline">Privacy Policy</a>. I understand the cancellation policy and payment terms.
+                                        </span>
+                                    </label>
+                                    
+                                    <label class="flex items-start space-x-3 cursor-pointer">
+                                        <input type="checkbox" id="marketing-consent" class="mt-1 w-4 h-4 text-red border-border rounded focus:ring-red-500" />
+                                        <span class="text-sm text-text-secondary">
+                                            I would like to receive updates about my appointment and promotional offers via email and SMS.
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between mt-8">
+                    <button id="step-4-back" class="btn-secondary">
+                        Back to Details
+                    </button>
+                    <button id="confirm-booking" class="btn-primary disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                        Confirm & Pay Deposit
+                    </button>
+                </div>
+            </div>
+
+            <!-- Confirmation Screen -->
+            <div id="confirmation-screen" class="booking-step hidden text-center">
+                <div class="max-w-2xl mx-auto">
+                    <div class="w-20 h-20 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 success" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                    </div>
+                    
+                    <h2 class="text-3xl font-heading font-bold contact-info mb-4">Booking Confirmed!</h2>
+                    <p class="text-lg text-text-secondary mb-8">Your TV mounting appointment has been successfully scheduled.</p>
+                    
+                    <div class="card text-left mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-heading font-semibold navbar-brand">Booking Reference</h3>
+                            <span id="booking-reference" class="font-data navbar-brand font-bold">#TVM-2025-001</span>
+                        </div>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Confirmation sent to:</span>
+                                <span id="confirmation-email" class="font-semibold contact-info">-</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">SMS updates to:</span>
+                                <span id="confirmation-phone" class="font-semibold contact-info">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <a href="#" class="btn-primary text-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a4 4 0 118 0v4m-4 8a2 2 0 100-4 2 2 0 000 4zm6-8a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Add to Calendar
+                        </a>
+                        <a href="/home/homepage.html" class="btn-secondary text-center">
+                            Return to Home
+                        </a>
+                    </div>
+                    
+                    <div class="p-6 bg-red-50 rounded-lg">
+                        <h4 class="font-heading font-semibold navbar-brand mb-3">What's Next?</h4>
+                        <ul class="text-sm text-text-secondary space-y-2 text-left">
+                            <li class="flex items-start space-x-2">
+                                <svg class="w-4 h-4 success mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <span>You'll receive a confirmation email with technician details 24 hours before your appointment</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <svg class="w-4 h-4 success mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <span>Our technician will call 30 minutes before arrival</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <svg class="w-4 h-4 success mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <span>Please ensure the TV and mounting area are accessible</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-800 text-white py-16 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                 <img
+                src="../public/fondo-transparente-(1).png"
+                class="h-10 w-auto"
+                style="filter: brightness(0) invert(1)"
+                alt="TV Wall Mounting - Eickermanns Services LLC"
+                onerror="console.error('Failed to load footer logo:', this.src);"
+              />
+                        <span style="color: white;" class="text-xl font-heading font-bold">ES TV Wallmounting</span>
+                    </div>
+                    <p class="text-secondary-300 mb-4">
+                        Professional TV mounting services with expert installation and satisfaction guarantee.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a
+  href="#"
+  class="text-secondary-400 hover:text-white transition-colors"
+  aria-label="Pinterest"
+>
+  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path
+      d="M12 0C5.372 0 0 5.372 0 12c0 5.005 3.079 9.267 7.438 11.01-.103-.933-.197-2.365.041-3.387.216-.918 1.387-5.869 1.387-5.869s-.354-.71-.354-1.758c0-1.647.957-2.884 2.145-2.884 1.015 0 1.504.761 1.504 1.671 0 1.018-.646 2.541-.983 3.953-.282 1.18.595 2.142 1.761 2.142 2.109 0 3.732-2.225 3.732-5.433 0-2.83-2.04-4.815-4.95-4.815-3.37 0-5.353 2.528-5.353 5.14 0 1.019.393 2.12.884 2.716.097.119.11.223.084.342-.089.372-.291 1.189-.331 1.351-.052.223-.17.269-.398.164-1.478-.682-2.407-2.846-2.407-4.596 0-3.732 2.713-7.167 7.824-7.167 4.108 0 7.301 2.931 7.301 6.83 0 4.083-2.574 7.367-6.151 7.367-1.197 0-2.325-.62-2.71-1.36l-.739 2.818c-.267 1.031-.988 2.325-1.472 3.115C9.442 23.777 10.622 24 12 24c6.628 0 12-5.372 12-12S18.628 0 12 0z"
+    />
+  </svg>
+</a>
+
+<!-- Twitter (existing, example) -->
+<a
+  href="#"
+  class="text-secondary-400 hover:text-white transition-colors"
+  aria-label="Twitter"
+>
+  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path
+      d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+    />
+  </svg>
+</a>
+
+<!-- ✅ Instagram -->
+<a
+  href="https://www.instagram.com/yourusername"
+  class="text-secondary-400 hover:text-white transition-colors"
+  target="_blank"
+  rel="noopener"
+  aria-label="Instagram"
+>
+  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm4.25 3.25a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.5-.5a1 1 0 110 2 1 1 0 010-2z"/>
+  </svg>
+</a>
+
+<!-- ✅ TikTok -->
+<a
+  href="https://www.tiktok.com/@yourusername"
+  class="text-secondary-400 hover:text-white transition-colors"
+  target="_blank"
+  rel="noopener"
+  aria-label="TikTok"
+>
+  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M16 8.245v2.136c-1.087-.015-2.022-.26-2.818-.733v4.771a5.193 5.193 0 01-1.457 3.711 4.967 4.967 0 01-3.581 1.469A5.043 5.043 0 013.1 14.55a5.016 5.016 0 015.044-5.003c.221 0 .438.015.65.045v2.164a2.866 2.866 0 00-.65-.076 2.824 2.824 0 00-2.835 2.82 2.837 2.837 0 002.835 2.835 2.814 2.814 0 002.012-.832 2.764 2.764 0 00.81-1.991V2h2.41c.127.837.432 1.568.918 2.193a4.71 4.71 0 002.67 1.63z"/>
+  </svg>
+</a>
+
+<!-- ✅ WhatsApp -->
+<a
+  href="https://wa.me/17867714728"
+  class="text-secondary-400 hover:text-white transition-colors"
+  target="_blank"
+  rel="noopener"
+  aria-label="WhatsApp"
+>
+  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" >
+    <path d="M12.03 2C6.5 2 2.05 6.45 2.05 11.98c0 1.7.45 3.33 1.2 4.78L2 22l5.33-1.42c1.4.73 2.98 1.17 4.7 1.17 5.53 0 9.98-4.45 9.98-9.97S17.56 2 12.03 2zm0 18.47c-1.5 0-2.95-.4-4.23-1.12l-.3-.18-3.12.82.83-3.04-.2-.32c-.8-1.3-1.23-2.8-1.23-4.4C4.08 7.33 7.68 3.73 12.03 3.73c2.1 0 4.08.82 5.57 2.32 1.48 1.48 2.3 3.47 2.3 5.57.02 4.35-3.58 7.95-7.95 7.95zm4.5-6.2c-.25-.12-1.47-.72-1.7-.82s-.4-.15-.56.15-.64.82-.78.98-.28.18-.53.05c-.25-.12-1.06-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72s-.03-.23.12-.35c.13-.13.28-.32.42-.48.12-.13.17-.23.25-.38s.03-.28-.03-.4c-.05-.12-.56-1.35-.76-1.82s-.4-.4-.56-.4h-.5c-.15 0-.4.05-.6.25s-.8.78-.8 1.9c0 1.12.82 2.2 1.05 2.48.1.13 1.6 2.48 3.9 3.48.53.22.95.35 1.27.45.53.15 1.02.12 1.4-.08.43-.22 1.25-.9 1.42-1.22.18-.32.18-.6 0-.72s-.25-.12-.5-.25z"/>
+  </svg>
+</a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li ><a href="/home/homepage.html" class="text-secondary-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="/service/services_pricing.html" class="text-secondary-300 hover:text-white transition-colors">Services & Pricing</a></li>
+                        <li class="hidden"><a href="/bookappointment/online_booking_system.html" class="text-secondary-300 hover:text-white transition-colors">Book Appointment</a></li>
+                        <li><a href="/review/customer_testimonials_portfolio.html" class="text-secondary-300 hover:text-white transition-colors">Reviews & Portfolio</a></li>
+                        <li><a href="/contact/contact_service_areas.html" class="text-secondary-300 hover:text-white transition-colors">Contact & Service Areas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-6">Our Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/service/services_pricing.html#wall-mounting" class="text-secondary-300 hover:text-white transition-colors">Wall Mounting</a></li>
+                        <li><a href="/service/services_pricing.html#ceiling-mounting" class="text-secondary-300 hover:text-white transition-colors">Ceiling Mounting</a></li>
+                        <li><a href="/service/services_pricing.html#setup-services" class="text-secondary-300 hover:text-white transition-colors">Complete Setup</a></li>
+                        <li><a href="/service/services_pricing.html#cable-management" class="text-secondary-300 hover:text-white transition-colors">Cable Management</a></li>
+                        <li><a href="/service/services_pricing.html#emergency" class="text-secondary-300 hover:text-white transition-colors">Emergency Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-6">Contact Info</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-primary-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                            <div>
+                                <p class="text-white font-semibold">+1-786-771-4728</p>
+                                <p class="text-secondary-300 text-sm">24/7 Emergency Service</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-primary-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                            <div>
+                                <p class="text-white">eatvmount@gmail.com</p>
+                                <p class="text-secondary-300 text-sm">Quick Response Guaranteed</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-primary-400 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/>
+                            </svg>
+                            <div>
+                                <p class="text-white">Metro Area Coverage</p>
+                                <p class="text-secondary-300 text-sm">Same-Day Service Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-secondary-700 mt-12 pt-8 text-center">
+                <p class="text-secondary-400">
+                    © 2025 ES TV Wallmounting. All Rights Reserved. | Licensed & Insured Professional TV Mounting Services
+
+
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking System JavaScript -->
+    <script>
+        // Booking system state
+        let bookingData = {
+            services: [],
+            selectedDate: null,
+            selectedTime: null,
+            isEmergency: false,
+            customer: {},
+            total: 0
+        };
+
+        // Initialize booking system
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeBookingSystem();
+            generateCalendar();
+        });
+
+        function initializeBookingSystem() {
+            // Mobile menu functionality
+            document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Service selection handlers
+            setupServiceSelection();
+            
+            // Step navigation handlers
+            setupStepNavigation();
+            
+            // Form validation
+            setupFormValidation();
+            
+            // Calendar and time slot handlers
+            setupDateTimeSelection();
+        }
+
+        function setupServiceSelection() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            serviceCards.forEach(card => {
+                const plusBtn = card.querySelector('.plus');
+                const minusBtn = card.querySelector('.minus');
+                const quantityDisplay = card.querySelector('.quantity-display');
+                
+                plusBtn.addEventListener('click', () => {
+                    const service = card.dataset.service;
+                    const price = parseInt(card.dataset.price);
+                    const duration = parseInt(card.dataset.duration);
+                    
+                    let quantity = parseInt(quantityDisplay.textContent);
+                    quantity++;
+                    quantityDisplay.textContent = quantity;
+                    
+                    // Update booking data
+                    updateServiceInBooking(service, price, duration, quantity);
+                    
+                    // Update UI
+                    updateOrderSummary();
+                    minusBtn.disabled = false;
+                    card.classList.add('border-red-300', 'bg-red-50');
+                });
+                
+                minusBtn.addEventListener('click', () => {
+                    const service = card.dataset.service;
+                    const price = parseInt(card.dataset.price);
+                    const duration = parseInt(card.dataset.duration);
+                    
+                    let quantity = parseInt(quantityDisplay.textContent);
+                    if (quantity > 0) {
+                        quantity--;
+                        quantityDisplay.textContent = quantity;
+                        
+                        // Update booking data
+                        updateServiceInBooking(service, price, duration, quantity);
+                        
+                        // Update UI
+                        updateOrderSummary();
+                        
+                        if (quantity === 0) {
+                            minusBtn.disabled = true;
+                            card.classList.remove('border-red-300', 'bg-red-50');
+                        }
+                    }
+                });
+            });
+        }
+
+        function updateServiceInBooking(service, price, duration, quantity) {
+            const existingIndex = bookingData.services.findIndex(s => s.service === service);
+            
+            if (quantity === 0) {
+                if (existingIndex > -1) {
+                    bookingData.services.splice(existingIndex, 1);
+                }
+            } else {
+                const serviceData = {
+                    service,
+                    price,
+                    duration,
+                    quantity,
+                    total: price * quantity
+                };
+                
+                if (existingIndex > -1) {
+                    bookingData.services[existingIndex] = serviceData;
+                } else {
+                    bookingData.services.push(serviceData);
+                }
+            }
+            
+            // Calculate total
+            bookingData.total = bookingData.services.reduce((sum, s) => sum + s.total, 0);
+        }
+
+        function updateOrderSummary() {
+            const selectedServicesEl = document.getElementById('selected-services');
+            const totalPriceEl = document.getElementById('total-price');
+            const totalDurationEl = document.getElementById('total-duration');
+            const step1NextBtn = document.getElementById('step-1-next');
+            
+            if (bookingData.services.length === 0) {
+                selectedServicesEl.innerHTML = '<p class="text-text-secondary">No services selected</p>';
+                totalPriceEl.textContent = '$0';
+                totalDurationEl.textContent = '0 hours';
+                step1NextBtn.disabled = true;
+            } else {
+                const servicesHtml = bookingData.services.map(s => {
+                    const serviceName = s.service.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+                    return `
+                        <div class="flex justify-between">
+                            <span>${serviceName} x${s.quantity}</span>
+                            <span>$${s.total}</span>
+                        </div>
+                    `;
+                }).join('');
+                
+                selectedServicesEl.innerHTML = servicesHtml;
+                totalPriceEl.textContent = `$${bookingData.total}`;
+                
+                const totalDuration = bookingData.services.reduce((sum, s) => sum + (s.duration * s.quantity), 0);
+                totalDurationEl.textContent = `${totalDuration} hours`;
+                
+                step1NextBtn.disabled = false;
+            }
+        }
+
+        function setupStepNavigation() {
+            // Step 1 to 2
+            document.getElementById('step-1-next').addEventListener('click', () => {
+                showStep(2);
+                updateProgress(2);
+            });
+            
+            // Step 2 navigation
+            document.getElementById('step-2-back').addEventListener('click', () => {
+                showStep(1);
+                updateProgress(1);
+            });
+            
+            document.getElementById('step-2-next').addEventListener('click', () => {
+                showStep(3);
+                updateProgress(3);
+            });
+            
+            // Step 3 navigation
+            document.getElementById('step-3-back').addEventListener('click', () => {
+                showStep(2);
+                updateProgress(2);
+            });
+            
+            document.getElementById('step-3-next').addEventListener('click', () => {
+                collectCustomerInfo();
+                showStep(4);
+                updateProgress(4);
+                populateBookingSummary();
+            });
+            
+            // Step 4 navigation
+            document.getElementById('step-4-back').addEventListener('click', () => {
+                showStep(3);
+                updateProgress(3);
+            });
+            
+            document.getElementById('confirm-booking').addEventListener('click', () => {
+                processBooking();
+            });
+        }
+
+        function showStep(stepNumber) {
+            // Hide all steps
+            document.querySelectorAll('.booking-step').forEach(step => {
+                step.classList.add('hidden');
+            });
+            
+            // Show target step
+            document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
+        }
+
+        function updateProgress(step) {
+            const progress = (step / 4) * 100;
+            const stepTexts = ['Select Services', 'Date & Time', 'Your Details', 'Confirm Booking'];
+            
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            document.getElementById('progress-percentage').textContent = `${progress}%`;
+            document.getElementById('current-step-text').textContent = `Step ${step} of 4`;
+            document.getElementById('step-description').textContent = stepTexts[step - 1];
+        }
+
+        function generateCalendar() {
+            const calendarEl = document.getElementById('calendar-widget');
+            const today = new Date();
+            const currentMonth = today.getMonth();
+            const currentYear = today.getFullYear();
+            
+            // Generate calendar for current month
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            
+            let calendarHtml = `
+                <div class="calendar-header flex items-center justify-between mb-4">
+                    <h4 class="font-semibold navbar-brand">${today.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</h4>
+                </div>
+                <div class="calendar-grid grid grid-cols-7 gap-1 text-center text-sm">
+                    <div class="font-semibold text-text-secondary p-2">Sun</div>
+                    <div class="font-semibold text-text-secondary p-2">Mon</div>
+                    <div class="font-semibold text-text-secondary p-2">Tue</div>
+                    <div class="font-semibold text-text-secondary p-2">Wed</div>
+                    <div class="font-semibold text-text-secondary p-2">Thu</div>
+                    <div class="font-semibold text-text-secondary p-2">Fri</div>
+                    <div class="font-semibold text-text-secondary p-2">Sat</div>
+            `;
+            
+            // Empty cells for days before month starts
+            for (let i = 0; i < firstDay; i++) {
+                calendarHtml += '<div class="p-2"></div>';
+            }
+            
+            // Days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const date = new Date(currentYear, currentMonth, day);
+                const isToday = day === today.getDate();
+                const isPast = date < today;
+                const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+                
+                let dayClass = 'calendar-day p-2 cursor-pointer rounded hover:bg-red-100 transition-colors';
+                
+                if (isPast) {
+                    dayClass += ' text-secondary-400 cursor-not-allowed hover:bg-transparent';
+                } else if (isToday) {
+                    dayClass += ' bg-red-100 text-red font-semibold';
+                } else if (isWeekend) {
+                    dayClass += ' text-accent-600';
+                } else {
+                    dayClass += ' text-text-primary hover:text-red';
+                }
+                
+                calendarHtml += `<div class="${dayClass}" data-date="${date.toISOString().split('T')[0]}" ${isPast ? 'data-disabled="true"' : ''}>${day}</div>`;
+            }
+            
+            calendarHtml += '</div>';
+            calendarEl.innerHTML = calendarHtml;
+            
+            // Add click handlers for calendar days
+            document.querySelectorAll('.calendar-day').forEach(day => {
+                if (!day.dataset.disabled) {
+                    day.addEventListener('click', () => {
+                        // Remove previous selection
+                        document.querySelectorAll('.calendar-day').forEach(d => {
+                            d.classList.remove('bg-red', 'text-white');
+                        });
+                        
+                        // Add selection to clicked day
+                        day.classList.add('bg-red', 'text-white');
+                        
+                        // Update booking data
+                        bookingData.selectedDate = day.dataset.date;
+                        
+                        // Generate time slots
+                        generateTimeSlots(day.dataset.date);
+                    });
+                }
+            });
+        }
+
+        function generateTimeSlots(selectedDate) {
+            const timeSlotsEl = document.getElementById('time-slots');
+            const timeSlots = [
+                '8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM',
+                '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'
+            ];
+            
+            let slotsHtml = '';
+            timeSlots.forEach(time => {
+                slotsHtml += `
+                    <button class="time-slot w-full p-3 text-left border border-border rounded-md hover:border-red-300 hover:bg-red-50 transition-colors" data-time="${time}">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold">${time}</span>
+                            <span class="text-sm text-text-secondary">Available</span>
+                        </div>
+                    </button>
+                `;
+            });
+            
+            timeSlotsEl.innerHTML = slotsHtml;
+            
+            // Add click handlers for time slots
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.addEventListener('click', () => {
+                    // Remove previous selection
+                    document.querySelectorAll('.time-slot').forEach(s => {
+                        s.classList.remove('border-red', 'bg-red-50');
+                    });
+                    
+                    // Add selection to clicked slot
+                    slot.classList.add('border-red', 'bg-red-50');
+                    
+                    // Update booking data
+                    bookingData.selectedTime = slot.dataset.time;
+                    
+                    // Enable next button
+                    document.getElementById('step-2-next').disabled = false;
+                });
+            });
+        }
+
+        function setupDateTimeSelection() {
+            // Emergency service toggle
+            document.getElementById('emergency-service').addEventListener('change', (e) => {
+                bookingData.isEmergency = e.target.checked;
+                updateOrderSummary();
+            });
+        }
+
+        function setupFormValidation() {
+            const form = document.getElementById('customer-form');
+            const inputs = form.querySelectorAll('input[required]');
+            const nextBtn = document.getElementById('step-3-next');
+            
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    validateForm();
+                });
+            });
+            
+            // Phone number formatting
+            document.getElementById('phone').addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 6) {
+                    value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6,10)}`;
+                } else if (value.length >= 3) {
+                    value = `(${value.slice(0,3)}) ${value.slice(3)}`;
+                }
+                e.target.value = value;
+            });
+            
+            function validateForm() {
+                const isValid = Array.from(inputs).every(input => input.value.trim() !== '');
+                nextBtn.disabled = !isValid;
+                
+                // Service area check simulation
+                const zipCode = document.getElementById('zip').value;
+                if (zipCode.length === 5) {
+                    document.getElementById('service-area-check').classList.remove('hidden');
+                }
+            }
+        }
+
+        function collectCustomerInfo() {
+            const form = document.getElementById('customer-form');
+            const formData = new FormData(form);
+            
+            bookingData.customer = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                address: formData.get('address'),
+                city: formData.get('city'),
+                zip: formData.get('zip'),
+                specialInstructions: formData.get('specialInstructions')
+            };
+        }
+
+        function populateBookingSummary() {
+            // Services summary
+            const servicesEl = document.getElementById('booking-summary-services');
+            let servicesHtml = '';
+            bookingData.services.forEach(service => {
+                const serviceName = service.service.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+                servicesHtml += `
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="font-semibold">${serviceName}</span>
+                            <span class="text-text-secondary"> x${service.quantity}</span>
+                        </div>
+                        <span class="font-semibold">$${service.total}</span>
+                    </div>
+                `;
+            });
+            servicesEl.innerHTML = servicesHtml;
+            
+            // Appointment details
+            document.getElementById('summary-date').textContent = new Date(bookingData.selectedDate).toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            document.getElementById('summary-time').textContent = bookingData.selectedTime;
+            
+            const totalDuration = bookingData.services.reduce((sum, s) => sum + (s.duration * s.quantity), 0);
+            document.getElementById('summary-duration').textContent = `${totalDuration} hours`;
+            
+            // Customer info
+            document.getElementById('summary-name').textContent = `${bookingData.customer.firstName} ${bookingData.customer.lastName}`;
+            document.getElementById('summary-email').textContent = bookingData.customer.email;
+            document.getElementById('summary-phone').textContent = bookingData.customer.phone;
+            document.getElementById('summary-address').textContent = `${bookingData.customer.address}, ${bookingData.customer.city} ${bookingData.customer.zip}`;
+            
+            // Pricing breakdown
+            const pricingEl = document.getElementById('pricing-breakdown');
+            let pricingHtml = '';
+            
+            bookingData.services.forEach(service => {
+                const serviceName = service.service.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+                pricingHtml += `
+                    <div class="flex justify-between">
+                        <span>${serviceName} x${service.quantity}</span>
+                        <span>$${service.total}</span>
+                    </div>
+                `;
+            });
+            
+            if (bookingData.isEmergency) {
+                const surcharge = Math.round(bookingData.total * 0.5);
+                pricingHtml += `
+                    <div class="flex justify-between text-accent-600">
+                        <span>Emergency Service Surcharge (50%)</span>
+                        <span>$${surcharge}</span>
+                    </div>
+                `;
+                bookingData.total += surcharge;
+            }
+            
+            pricingEl.innerHTML = pricingHtml;
+            document.getElementById('final-total').textContent = `$${bookingData.total}`;
+            
+            // Enable confirm button when terms are accepted
+            document.getElementById('terms-agreement').addEventListener('change', (e) => {
+                document.getElementById('confirm-booking').disabled = !e.target.checked;
+            });
+        }
+
+        function processBooking() {
+            // Simulate booking processing
+            const bookingRef = `TVM-2025-${String(Math.floor(Math.random() * 1000)).padStart(3, '0')}`;
+            
+            // Show confirmation
+            document.querySelectorAll('.booking-step').forEach(step => {
+                step.classList.add('hidden');
+            });
+            document.getElementById('confirmation-screen').classList.remove('hidden');
+            
+            // Update progress to 100%
+            document.getElementById('progress-bar').style.width = '100%';
+            document.getElementById('progress-percentage').textContent = '100%';
+            document.getElementById('current-step-text').textContent = 'Booking Complete';
+            document.getElementById('step-description').textContent = 'Confirmation';
+            
+            // Populate confirmation details
+            document.getElementById('booking-reference').textContent = bookingRef;
+            document.getElementById('confirmation-email').textContent = bookingData.customer.email;
+            document.getElementById('confirmation-phone').textContent = bookingData.customer.phone;
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

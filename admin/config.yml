@@ -1,0 +1,231 @@
+backend:
+  name: github
+  repo: Rashymad/estvwallmounting
+  branch: main
+  auth_type: implicit
+  client_id: Ov23liPSU3V5KfzZS0Vw
+
+
+media_folder: "images/uploads" # Where media files will be stored
+public_folder: "/images/uploads" # The public path to media files
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "content/settings.md"
+        name: "settings"
+        label: "Global Settings"
+        fields:
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Inverted Logo (Footer)", name: "logo_inverted", widget: "image" }
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Email Address", name: "email", widget: "string" }
+          - { label: "Footer Company Name", name: "footer_company_name", widget: "string" }
+          - { label: "Footer Tagline", name: "footer_tagline", widget: "string" }
+          - { label: "Footer Copyright", name: "footer_copyright", widget: "string" }
+          - name: socials
+            label: "Social Media Links"
+            widget: "object"
+            fields:
+              - { label: "Twitter URL", name: "twitter", widget: "string", required: false }
+              - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+              - { label: "TikTok URL", name: "tiktok", widget: "string", required: false }
+              - { label: "WhatsApp URL", name: "whatsapp", widget: "string", required: false }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/homepage.md"
+        name: "homepage"
+        label: "Homepage"
+        fields:
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
+          - { label: "Hero Image", name: "hero_image", widget: "image" }
+          - name: trust_indicators
+            label: "Trust Indicators (Under Hero)"
+            widget: "list"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+          - { label: "Services Overview Title", name: "services_overview-title", widget: "string" }
+          - { label: "Services Overview Subtitle", name: "services_overview-subtitle", widget: "text" }
+          - name: services_list
+            label: "Services List (Homepage)"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Link", name: "link", widget: "string" }
+          - { label: "Testimonials Section Title", name: "testimonials_section-title", widget: "string" }
+          - { label: "Testimonials Section Subtitle", name: "testimonials_section-subtitle", widget: "text" }
+          - name: testimonials
+            label: "Customer Testimonials (Homepage)"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Author Image", name: "author_image", widget: "image" }
+              - { label: "Author Name", name: "author_name", widget: "string" }
+              - { label: "Author Title", name: "author_title", widget: "string" }
+          - { label: "Service Areas Section Title", name: "service_areas_section-title", widget: "string" }
+          - { label: "Service Areas Section Subtitle", name: "service_areas_section-subtitle", widget: "text" }
+          - name: service_areas_list
+            label: "Service Areas List (Homepage)"
+            widget: "list"
+            fields:
+              - { label: "Area Name", name: "area_name", widget: "string" }
+          - { label: "Secondary Booking Title", name: "secondary_booking_section-title", widget: "string" }
+          - { label: "Secondary Booking Subtitle", name: "secondary_booking_section-subtitle", widget: "text" }
+          - name: secondary_booking_cards
+            label: "Secondary Booking Cards"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Price Text", name: "price", widget: "string" }
+
+      - file: "content/services.md"
+        name: "services"
+        label: "Services & Pricing Page"
+        fields:
+          - { label: "Main Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - name: "quick_quote"
+            label: "Quick Quote Calculator"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Button Text", name: "button_text", widget: "string" }
+              - { label: "Result Prefix", name: "result_prefix", widget: "string" }
+          - name: service_sections
+            label: "Service Sections"
+            widget: "list"
+            fields:
+              - { label: "ID (for linking, e.g. wall-mounting)", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Starting Price", name: "price", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - name: tiers
+                label: "Pricing Tiers"
+                widget: "list"
+                fields:
+                  - { label: "Tier Name", name: "name", widget: "string" }
+                  - { label: "Tier Price", name: "price", widget: "string" }
+                  - { label: "Features", name: "features", widget: "list", field: { label: "Feature", name: "feature", widget: "string" } }
+              - name: gallery
+                label: "Image Gallery"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - name: testimonial
+                label: "Testimonial"
+                widget: "object"
+                fields:
+                  - { label: "Quote", name: "quote", widget: "text" }
+                  - { label: "Author", name: "author", widget: "string" }
+          - { label: "Comparison Table Title", name: "comparison_title", widget: "string" }
+          - { label: "Comparison Table Subtitle", name: "comparison_subtitle", widget: "string" }
+          - name: comparison_packages
+            label: "Comparison Packages"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+              - { label: "Most Popular?", name: "popular", widget: "boolean", default: false }
+              - { label: "Features", name: "features", widget: "list", field: { label: "Feature", name: "feature", widget: "string" } }
+          - { label: "Transparent Pricing Title", name: "pricing_title", widget: "string" }
+          - { label: "Transparent Pricing Subtitle", name: "pricing_subtitle", widget: "string" }
+          - { label: "CTA Title", name: "cta_title", widget: "string" }
+          - { label: "CTA Subtitle", name: "cta_subtitle", widget: "string" }
+
+      - file: "content/reviews.md"
+        name: "reviews"
+        label: "Reviews & Portfolio Page"
+        fields:
+          - { label: "Main Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - name: stats
+            label: "Statistics"
+            widget: "list"
+            fields:
+              - { label: "Value (e.g., 4.9)", name: "value", widget: "string" }
+              - { label: "Label (e.g., Average Rating)", name: "label", widget: "string" }
+          - name: video_testimonials
+            label: "Video Testimonials"
+            widget: "list"
+            fields:
+              - { label: "Thumbnail Image", name: "image", widget: "image" }
+              - { label: "Video URL (e.g., YouTube link)", name: "video_url", widget: "string" }
+              - { label: "Duration (e.g., 2:34)", name: "duration", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Author Image", name: "author_image", widget: "image" }
+              - { label: "Author Name", name: "author_name", widget: "string" }
+              - { label: "Author Title", name: "author_title", widget: "string" }
+          - name: written_reviews
+            label: "Written Reviews"
+            widget: "list"
+            fields:
+              - { label: "Author Image", name: "author_image", widget: "image" }
+              - { label: "Author Name", name: "author_name", widget: "string" }
+              - { label: "Status (e.g., Verified Customer)", name: "author_status", widget: "string" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Service Type", name: "service_type", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Portfolio ID (connects to a project)", name: "portfolio_id", widget: "string" }
+          - name: portfolio_items
+            label: "Portfolio Projects"
+            widget: "list"
+            fields:
+              - { label: "ID (must match a review's portfolio_id)", name: "id", widget: "string" }
+              - { label: "Video", name: "video", widget: "file" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Category", name: "category", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+
+      - file: "content/booking.md"
+        name: "booking"
+        label: "Booking Page"
+        fields:
+          - { label: "Step 1 Title", name: "step1_title", widget: "string" }
+          - { label: "Step 1 Subtitle", name: "step1_subtitle", widget: "string" }
+          - name: booking_services
+            label: "Booking Services"
+            widget: "list"
+            fields:
+              - { label: "ID (e.g., wall-mount)", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+              - { label: "Price (number only)", name: "price", widget: "number" }
+              - { label: "Duration (hours, number only)", name: "duration", widget: "number" }
+
+      - file: "content/contact.md"
+        name: "contact"
+        label: "Contact Page"
+        fields:
+          - { label: "Main Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - name: hours
+            label: "Business Hours"
+            widget: "list"
+            fields:
+              - { label: "Days", name: "days", widget: "string" }
+              - { label: "Time", name: "time", widget: "string" }
+          - { label: "Address", name: "address", widget: "text" }
+          - name: service_areas
+            label: "Service Area List"
+            widget: "list"
+            fields:
+              - { label: "Area Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Service Level (e.g., Same-day service)", name: "level", widget: "string" }
+              - { label: "Pricing Note (e.g., Standard pricing)", name: "pricing", widget: "string" }
+              - { label: "Status (e.g., Priority)", name: "status", widget: "string" }
+              - { label: "Type (success or accent)", name: "type", widget: "select", options: ["success", "accent"] }
+          - name: faqs
+            label: "Frequently Asked Questions"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }

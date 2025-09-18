@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>TV Mount Quote</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../public/fondo-transparente-(1).png" type="image/png">
+  <style>
+    :root { --brand: #E50914; --white: #ffffff; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: Inter, sans-serif; color: var(--white); }
+
+    #bgVideo { position: fixed; inset: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -2; }
+    #overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(3px); z-index: -1; }
+
+    #wizard { position: relative; width: clamp(300px, 90vw, 440px); margin: 8vh auto; background: transparent; padding: 30px; }
+    #cancelBtn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 32px;
+        line-height: 1;
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: filter .3s;
+    }
+    #cancelBtn:hover { filter: brightness(1.2); }
+    #progressBar { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.15); overflow: hidden; margin-bottom: 20px; }
+    #progressBar span { display: block; height: 100%; background: var(--brand); width: 0; transition: width .5s; }
+    
+    .step { display:none; animation:fadeIn .4s forwards; }
+    .step.active { display:block; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+
+    .options { display:flex;flex-direction:column;gap:.75rem;margin-top:.75rem; }
+    .option { padding:14px; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.2); border-radius:10px; cursor:pointer; transition:.25s; font-size:15px; }
+    .option:hover { border-color: var(--brand); background: rgba(229,9,20,0.4); }
+    .option.selected { background: var(--brand); border-color: var(--brand); }
+
+    label { margin:1rem 0 .3rem; font-weight:500; font-size:14px; }
+    input, textarea { width:100%; padding:.75rem; border-radius:10px; border:1px solid rgba(255,255,255,0.3); background:rgba(0,0,0,0.5); color:#fff; font-size:14px; }
+    input::placeholder, textarea::placeholder { color:rgba(255,255,255,0.7); }
+    button { flex:1; padding:.75rem; border:none; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; transition:.3s; }
+    .next { background: var(--brand); color:#fff; }
+    .next:hover { filter:brightness(1.1); }
+    .skip { background:rgba(0,0,0,0.3); color:#fff; border:1px solid rgba(255,255,255,0.3); }
+    .skip:hover { border-color:var(--brand); color:var(--brand); }
+    .buttons { display:flex; gap:.7rem; margin-top:1.2rem; }
+
+    .datetime-group {
+      display: flex;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(0, 0, 0, 0.5);
+      overflow: hidden; /* To clip children's corners */
+    }
+    .datetime-group:has(:focus-within) {
+        border-color: var(--brand); /* Highlight when child is focused */
+    }
+    .datetime-group input, 
+    .datetime-group select {
+      border: none;
+      background: transparent;
+      flex: 1;
+      padding: .75rem;
+      color: #fff;
+      font-size: 14px;
+      font-family: Inter, sans-serif;
+    }
+    .datetime-group input:focus, 
+    .datetime-group select:focus {
+      outline: none;
+    }
+    .datetime-group input {
+      border-right: 1px solid rgba(255,255,255,0.3);
+      min-width: 55%; /* Give date input a bit more space */
+    }
+    .datetime-group select option {
+      background: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <video id="bgVideo" autoplay muted loop playsinline>
+    <source src="../videos/wallmounting.mp4" type="video/mp4">
+    <source src="../videos/instalaion.webm" type="video/webm">
+  </video>
+  <div id="overlay"></div>
+
+  <div id="wizard">
+    <a href="#" id="cancelBtn" title="Cancel and go back">&times;</a>
+    <!-- Remove progress bar after submission -->
+    <div id="progressBar"><span></span></div>
+
+    <!-- STEPS -->
+    <div class="step active" data-pct="0">
+      <h2>TV Size?</h2>
+      <div class="options" data-field="tv-size">
+        <div class="option">31" or smaller – $69</div>
+        <div class="option">32"-59" – $129</div>
+        <div class="option">60"+ – $189 (2 techs)</div>
+        <div class="option">60"+ – $149 (1 tech + your help)</div>
+      </div>
+    </div>
+
+    <div class="step" data-pct="20">
+      <h2>Mount Type?</h2>
+      <div class="options" data-field="mount-type">
+        <div class="option">I have a mount – $0</div>
+        <div class="option">Fixed – $39</div>
+        <div class="option">Tilting – $49</div>
+        <div class="option">Full-motion – $69</div>
+      </div>
+    </div>
+
+    <div class="step" data-pct="40">
+      <h2>Wall Type?</h2>
+      <div class="options" data-field="wall-type">
+        <div class="option">Drywall / Plaster / Wood – $0</div>
+        <div class="option">Brick – $49</div>
+        <div class="option">Concrete – $49</div>
+        <div class="option">Metal/Other – $49</div>
+      </div>
+    </div>
+
+    <div class="step" data-pct="60">
+      <h2>Wire Concealment?</h2>
+      <div class="options" data-field="wire-concealment">
+        <div class="option">Leave exposed – $0</div>
+        <div class="option">External cover – $49</div>
+        <div class="option">In-wall + power – $99</div>
+      </div>
+    </div>
+
+    <div class="step" data-pct="80">
+      <h2>Add-ons?</h2>
+      <div class="options" data-field="addons">
+        <div class="option">Soundbar – $79</div>
+        <div class="option">Above fireplace – $49</div>
+        <div class="option">Dismount old TV – $49</div>
+        <div class="option">Shelf set up – $39</div>
+        <div class="option">Xbox/Playstation set up – $29</div>
+        <div class="option">Full audio set up (Surround system) – $149</div>
+      </div>
+    </div>
+
+    <div class="step" data-pct="100">
+      <h2>Location?</h2>
+      <div class="options" data-field="location">
+        <div class="option">MIAMI-DADE ($0)</div>
+        <div class="option">BROWARD ($20)</div>
+        <div class="option">PALM BEACH ($50)</div>
+        <div class="option">COLLIER ($80)</div>
+      </div>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="step" data-pct="100">
+      <h2>Contact & Book</h2>
+      <form id="contactForm" action="https://formspree.io/f/mjkedvjn" method="POST">
+        <!-- hidden fields for selections -->
+        <input type="hidden" name="tv-size" id="tv-size-input">
+        <input type="hidden" name="mount-type" id="mount-type-input">
+        <input type="hidden" name="wall-type" id="wall-type-input">
+        <input type="hidden" name="wire-concealment" id="wire-concealment-input">
+        <input type="hidden" name="addons" id="addons-input">
+        <input type="hidden" name="location" id="location-input">
+        <input type="hidden" name="order_details" id="orderDetails">
+
+        <label>Name *</label>
+        <input name="name" required placeholder="Jane Doe">
+        <label>Email *</label>
+        <input type="email" name="email" required placeholder="jane@example.com">
+        <label>Phone *</label>
+        <input type="tel" name="phone" required placeholder="(555) 123-4567">
+        <label>Preferred Date & Time *</label>
+        <div class="datetime-group">
+          <input type="date" name="preferred_date" id="preferred_date" required>
+          <select name="preferred_time" id="preferred_time" required disabled>
+            <option value="" disabled selected>Select a date first</option>
+          </select>
+        </div>
+        <label style="margin-top: 1.5rem;">Optional notes</label>
+        <textarea name="notes" placeholder="Any other details..."></textarea>
+
+        <button type="submit" class="next" id="submitBtn">Submit</button>
+      </form>
+    </div>
+
+    <div class="step" id="confirmationStep">
+      <h2>All set!</h2>
+      <p>We’ll reach out shortly to confirm your install.</p>
+    </div>
+
+    <div class="buttons">
+      <button id="skipBtn" class="skip">Skip</button>
+      <button id="nextBtn" class="next">Next</button>
+    </div>
+  </div>
+
+<script>
+  const steps = [...document.querySelectorAll('.step')];
+  const progress = document.querySelector('#progressBar span');
+  const nextBtn = document.getElementById('nextBtn');
+  const skipBtn = document.getElementById('skipBtn');
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const confirmationStep = document.getElementById('confirmationStep');
+  const cancelBtn = document.getElementById('cancelBtn');
+  let current = 0;
+
+  // capture selections
+  document.querySelectorAll('.options').forEach(group => {
+    group.addEventListener('click', e => {
+      if (e.target.classList.contains('option')) {
+        group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        e.target.classList.add('selected');
+        const field = group.getAttribute('data-field');
+        document.getElementById(field + '-input').value = e.target.textContent.trim();
+        updateSummary();
+        setTimeout(nextStep, 250);
+      }
+    });
+  });
+
+  function updateSummary() {
+    const fields = ['tv-size','mount-type','wall-type','wire-concealment','addons','location'];
+    let summary = '';
+    fields.forEach(f => {
+      let val = document.getElementById(f+'-input').value;
+      if(val) summary += `${f}: ${val}\n`;
+    });
+    document.getElementById('orderDetails').value = summary;
+  }
+
+  function show(i) {
+    steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    progress.style.width = (steps[i].dataset.pct || 100) + '%';
+    skipBtn.style.display = i >= steps.length - 2 ? 'none' : 'block';
+    nextBtn.style.display = i >= steps.length - 2 ? 'none' : 'block'; // Hide Next on contact & confirmation steps
+
+    if (cancelBtn) {
+        // Hide cancel button on confirmation step or if inside an iframe
+        if (i === steps.length - 1 || window.self !== window.top) {
+            cancelBtn.style.display = 'none';
+        } else {
+            cancelBtn.style.display = 'flex';
+        }
+    }
+  }
+
+  function nextStep() {
+    if (current < steps.length - 2) { current++; show(current); }
+  }
+
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Go back to the previous page in history.
+        // This works for any page the user came from.
+        if (window.history.length > 1) {
+            history.back();
+        } else {
+            // Fallback for direct access or no history
+            window.location.href = '/home/homepage.html';
+        }
+    });
+  }
+
+  nextBtn.addEventListener('click', nextStep);
+  skipBtn.addEventListener('click', nextStep);
+  document.addEventListener('keydown', e => { if (e.key === 'Enter' && current < steps.length - 2) { e.preventDefault(); nextStep(); }});
+  show(0);
+
+  // Handle form submission
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Send form data to Formspree
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      // Hide form, progress bar, and buttons; show confirmation
+      form.style.display = 'none';
+      document.getElementById('progressBar').style.display = 'none';
+      document.querySelector('.buttons').style.display = 'none';
+      show(steps.length - 1); // Show confirmation step
+    }).catch(error => {
+      alert('There was an error submitting your request. Please try again.');
+    });
+  });
+
+  // Date and Time selection logic
+  const dateInput = document.getElementById('preferred_date');
+  const timeSelect = document.getElementById('preferred_time');
+
+  // Set min date to today
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+  const dd = String(today.getDate()).padStart(2, '0');
+  dateInput.setAttribute('min', `${yyyy}-${mm}-${dd}`);
+
+  dateInput.addEventListener('change', function() {
+    const selectedDate = new Date(this.value);
+    // getDay() is 0 for Sunday. Add timezone offset to avoid issues.
+    const dayOfWeek = new Date(selectedDate.getTime() + selectedDate.getTimezoneOffset() * 60000).getDay();
+    
+    let timeSlots = [];
+    
+    if (dayOfWeek >= 1 && dayOfWeek <= 5) { // Monday - Friday (8am - 7pm)
+      timeSlots = generateTimeSlots(8, 19);
+    } else if (dayOfWeek === 6) { // Saturday (9am - 6pm)
+      timeSlots = generateTimeSlots(9, 18);
+    } else if (dayOfWeek === 0) { // Sunday (10am - 4pm)
+      timeSlots = generateTimeSlots(10, 16);
+    }
+    
+    populateTimeSlots(timeSlots);
+  });
+
+  function generateTimeSlots(startHour, endHour) {
+    const slots = [];
+    for (let i = startHour; i < endHour; i++) {
+      const ampm = i >= 12 ? 'PM' : 'AM';
+      const displayHour = i % 12 === 0 ? 12 : i % 12;
+      slots.push(`${displayHour}:00 ${ampm}`);
+    }
+    return slots;
+  }
+
+  function populateTimeSlots(slots) {
+    timeSelect.innerHTML = '<option value="" disabled selected>Select a time slot</option>';
+    slots.forEach(slot => timeSelect.innerHTML += `<option value="${slot}">${slot}</option>`);
+    timeSelect.disabled = slots.length === 0;
+    if (slots.length === 0) {
+      timeSelect.querySelector('option').textContent = 'No slots available';
+    }
+  }
+</script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

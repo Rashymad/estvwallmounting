@@ -1,0 +1,23 @@
+RewriteEngine On
+
+# ---- Rules to remove .html extension from URL ----
+
+# 1. Redirect requests for /page.html to /page
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^(.+?)\.html$ /$1 [R=301,L]
+
+# 2. Internally rewrite /page to /page.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# ---- Rule for Decap CMS Admin SPA ----
+# This ensures that any deep link to the admin panel
+# (e.g., /admin/collections/pages) is handled by the admin index file.
+RewriteCond %{REQUEST_URI} ^/admin/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . /admin/index.html [L]
+
+# ---- Serve index.html for directory requests ----
+DirectoryIndex index.html
