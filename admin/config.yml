@@ -3,7 +3,7 @@ backend:
   repo: Rashymad/estvwallmounting
   branch: main
   auth_type: implicit
-  client_id: Ov23liPSU3V5KfzZS0Vw
+  client_id: "Ov23liPSU3V5KfzZS0Vw"
 
 
 media_folder: "images/uploads" # Where media files will be stored
